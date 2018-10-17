@@ -188,6 +188,7 @@
 			if (copyTextValue.trim() == '') {
 				//...then show an error message
 				document.getElementById("p2").innerHTML='Please find the location!'
+				document.getElementById("p2").style.color = "#a52d36";
 			} else {
 				//...else copy the text inside the text field...
 				document.execCommand("copy");
