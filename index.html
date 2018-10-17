@@ -141,6 +141,8 @@
 			} else if(detectTablet()) {
 				map.controls[google.maps.ControlPosition.LEFT_TOP].push(input);
 				document.getElementById("pac-input").style.width = '70vw';
+				document.getElementById("pac-input").style.marginLeft = '10px';
+				document.getElementById("pac-input").style.marginTop = '.1px';
 			} else {
 				map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 			}
@@ -199,7 +201,7 @@
 						//set the infoWindow to the current centre of the map
 						infoWindow.setPosition(map.getCenter());
 						//set it's content to a checking message
-						infoWindow.setContent('Please now CHECK this location.');
+						infoWindow.setContent(Geo_Check_Text);
 						//open the infoWindow on the map
 						infoWindow.open(map);
 					},
@@ -208,7 +210,7 @@
 						//set the infoWindow to the current centre of the map
 						infoWindow.setPosition(map.getCenter());
 						//set it's content to an error message
-						infoWindow.setContent('Error: The Geolocation service failed.');
+						infoWindow.setContent(Geo_Error1_Text);
 						//open the infoWindow on the map
 						infoWindow.open(map);
 						
@@ -221,7 +223,7 @@
 				//set the infoWindow to the current centre of the map
 				infoWindow.setPosition(map.getCenter());
 				//set it's content to an error message
-				infoWindow.setContent('Error: Your browser doesn\'t support geolocation.');
+				infoWindow.setContent(Geo_Error2_Text);
 				//open the infoWindow on the map
 				infoWindow.open(map);
 			}	
@@ -240,13 +242,13 @@
 				//if the text field doesn't contain any info (i.e. the map hasn't been moved)...
 				if (copyTextValue.trim() == '') {
 					//...then show an error message
-					document.getElementById("p2").innerHTML='Please find the location!'
+					document.getElementById("p2").innerHTML = GPS_Warn_Text;
 					document.getElementById("p2").style.color = "#a52d36";
 				} else {
 					//...else copy the text inside the text field...
 					document.execCommand("copy");
 					//...and alert the copied text
-					document.getElementById("p2").innerHTML='GPS Coordinates copied!'
+					document.getElementById("p2").innerHTML = GPS_Copy_Text;
 					document.getElementById("p2").style.color = "#a0a0a0";
 				}
 		}
@@ -254,7 +256,7 @@
 		//change some of the styling for the map, GPS coordinates box, copy button, and copy
 		//confirmation message if the browser is a mobile or tablet.
 		if(detectMobile()) {
-			document.getElementById("map-canvas").style.height = '460px';
+			document.getElementById("map-canvas").style.height = '430px';
 			document.getElementById("LatLong").style.marginLeft = '5px';
 			document.getElementById("LatLong").style.display = 'block';
 			document.getElementById("button2").style.marginLeft = '5px';
@@ -265,7 +267,7 @@
 			document.getElementById("p2").style.lineHeight = '20px';
 			document.getElementById("p2").style.display = 'block';
 		} else if(detectTablet()) {
-			document.getElementById("map-canvas").style.height = '460px';
+			document.getElementById("map-canvas").style.height = '430px';
 			document.getElementById("LatLong").style.marginLeft = '5px';
 			document.getElementById("LatLong").style.display = 'block';
 			document.getElementById("button2").style.marginLeft = '5px';
@@ -320,7 +322,7 @@
 			font-size: 15px;
 			font-weight: 300;
 			margin-left: 12px;
-			margin-top: 17px;
+			margin-top: 14px;
 			padding: 0 11px 0 13px;
 			text-overflow: ellipsis;
 			width: 400px;
